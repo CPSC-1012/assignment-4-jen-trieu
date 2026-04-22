@@ -66,6 +66,57 @@ namespace CustomerApp
                 Console.WriteLine();
             }
         }
+
+        static Customer SearchCustomer(List<Customer> allcustomers)
+        {
+            string query = Prompt("Please enter the name you're looking for: ");
+            List<Customer> selectedcustomers = new List<Customer>();
+            Customer output = null;
+
+            //loops
+            foreach (Customer customer in allcustomers)
+            {
+                if (customer.firstname.Contains(query) || customer.lastname.Contains(query))
+                {
+                    selectedcustomers.Add(customer);
+                }
+            }
+
+            if (selectedcustomers.Count == 0)
+            {
+                Console.WriteLine("No customers found!");
+                Console.WriteLine("Returning first customer in list!");
+                return allcustomers[0];
+            }
+            else if (selectedcustomers.Count == 1)
+            {
+                return selectedcustomers[0];
+            }
+            else
+            {
+                do
+                {
+                    query = Prompt("Please enter the customer full name in the following format (lastname, firstname) :  ").ToLower();
+
+                    foreach (Customer customer in selectedcustomers)
+                    {
+                        if (customer.fullname.ToLower() == query) 
+                        {
+                            output = customer;
+                        }
+                    }
+
+                    if (output == null)
+                    {
+                        Console.WriteLine("No customer found. Try again!");
+                    }
+                }
+                while (output != null);
+
+                return output;
+            }
+        }
+
        
 
         static string Prompt(string Message)
