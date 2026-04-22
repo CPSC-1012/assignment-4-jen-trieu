@@ -33,9 +33,14 @@ namespace CustomerApp
             //Created new varible 
             Customer customer = new Customer (firstname, lastname, ordercount, totalsales); 
 
+            //Provide feedback 
             Console.WriteLine($"Firstname: {customer.firstname}");
-            Console.WriteLine("");
-            
+            Console.WriteLine($"Lastname: {customer.lastname}");
+            Console.WriteLine($"Full Name: {customer.fullname}");
+            Console.WriteLine($"OrderCount: {customer.ordercount}");
+            Console.WriteLine($"TotalSales: {customer.totalsales}");
+            Console.WriteLine($"AverageSales: {customer.AverageOrder}");
+            Console.WriteLine($"Customer Tier: {customer.customerteir}");
         }
 
         static string Prompt(string Message)
