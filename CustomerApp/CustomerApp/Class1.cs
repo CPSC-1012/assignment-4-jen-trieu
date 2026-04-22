@@ -6,18 +6,19 @@
 /// </summary>
 using System;
 
+
 public class Customer
 {
     double _totalSales = 0;
     int _ordercount = 0;
 
     //Declaring Varibles 
-    string firstname { get; set; `}
+    string firstname { get; set; }
     string lastname { get; set; }
     int ordercount
     {
         //Declaring Value
-        get { return _ordercount}
+        get { return _ordercount; }
         set
         {
             //If and else
@@ -34,7 +35,7 @@ public class Customer
     double totalsales
     {
         //Declaring Value
-        get { return _totalSales}
+        get { return _totalSales; }
         set
         {
             //If and else 
@@ -52,7 +53,7 @@ public class Customer
     {
         get
         {
-            return totalsales / ordercount
+            return totalsales / ordercount;
 
         }
     }
@@ -64,20 +65,20 @@ public class Customer
             if (ordercount < 10)
             {
 
-                return "Bronze"
+                return "Bronze";
 
 
             }
             else if (ordercount > 49)
             {
 
-                return "Gold"
+                return "Gold";
 
 
             }
             else
 
-            { return "Silver"}
+            { return "Silver"; }
         }
 
     }
@@ -93,7 +94,7 @@ public class Customer
     public Customer(string first, string last, int count, double total)
     {
         //Constructor
-        firsname = first;
+        firstname = first;
         lastname = last;
         ordercount = count;
         totalsales = total;

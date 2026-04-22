@@ -1,5 +1,5 @@
 ﻿/// <summary>
-///  Create a program that gives gives information and store informations into classes 
+/// Create a program that gives gives information and store informations into classes 
 /// Program : CustomerDetail.cs
 /// Author : Jenny Trieu
 /// Date : 04/22/2026
@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Class1;
 
 namespace CustomerApp
 {
@@ -28,6 +29,7 @@ namespace CustomerApp
             lastname = Prompt("Enter your last name please : ");
             ordercount = PromptInt("Enter the amount of orders : ");
             totalsales = PromptDouble("Enter the total sales : ");
+
 
 
         }
