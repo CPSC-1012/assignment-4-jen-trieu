@@ -43,6 +43,26 @@ namespace CustomerApp
             Console.WriteLine($"Customer Tier: {customer.customerteir}");
         }
 
+        static Customer AddCustomer()
+        {
+            //Declare Varibles
+            string firstname;
+            string lastname;
+            int ordercount;
+            double totalsales;
+
+            //Entering the prompt 
+            firstname = Prompt("Enter your first name please : ");
+            lastname = Prompt("Enter your last name please : ");
+            ordercount = PromptInt("Enter the amount of orders : ");
+            totalsales = PromptDouble("Enter the total sales : ");
+
+            //Created new varible 
+            Customer customer = new Customer(firstname, lastname, ordercount, totalsales);
+
+            return customer;
+        }
+
         static string Prompt(string Message)
         {
             string output;
