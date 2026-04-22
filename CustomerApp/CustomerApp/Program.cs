@@ -23,6 +23,11 @@ namespace CustomerApp
             int ordercount;
             double totalsales;
 
+            //Entering the prompt 
+            firstname = Prompt("Enter your first name please : ");
+            lastname = Prompt("Enter your last name please : ");
+            ordercount = PromptInt("Enter the amount of orders : ");
+            totalsales = PromptDouble("Enter the total sales : ");
 
 
         }
