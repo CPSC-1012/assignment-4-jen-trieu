@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Class1;
+
 
 namespace CustomerApp
 {
@@ -30,8 +30,12 @@ namespace CustomerApp
             ordercount = PromptInt("Enter the amount of orders : ");
             totalsales = PromptDouble("Enter the total sales : ");
 
+            //Created new varible 
+            Customer customer = new Customer (firstname, lastname, ordercount, totalsales); 
 
-
+            Console.WriteLine($"Firstname: {customer.firstname}");
+            Console.WriteLine("");
+            
         }
 
         static string Prompt(string Message)

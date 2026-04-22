@@ -13,9 +13,9 @@ public class Customer
     int _ordercount = 0;
 
     //Declaring Varibles 
-    string firstname { get; set; }
-    string lastname { get; set; }
-    int ordercount
+    public string firstname { get; set; }
+    public string lastname { get; set; }
+    public int ordercount
     {
         //Declaring Value
         get { return _ordercount; }
@@ -32,7 +32,7 @@ public class Customer
             }
         }
     }
-    double totalsales
+    public double totalsales
     {
         //Declaring Value
         get { return _totalSales; }
@@ -49,7 +49,7 @@ public class Customer
             }
         }
     }
-    double AverageOrder
+    public double AverageOrder
     {
         get
         {
@@ -57,7 +57,7 @@ public class Customer
 
         }
     }
-    string customerteir
+    public string customerteir
     {
         get
         {
@@ -83,7 +83,7 @@ public class Customer
 
     }
 
-    string fullname
+    public string fullname
     {
         get
         {
