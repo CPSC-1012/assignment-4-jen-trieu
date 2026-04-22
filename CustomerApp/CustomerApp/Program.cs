@@ -119,11 +119,21 @@ namespace CustomerApp
 
         static void RemoveCustomer(Customer customer, List<Customer> allcustomers)
         {
-            string validate = Prompt($"Would you like to remove customer {customer.fullname} y/n").ToLower();
+            //Prompt
+           string validate = Prompt($"Would you like to remove customer {customer.fullname} y/n").ToLower();
+           
+            //If loop
            if (validate == "y")
             {
                 allcustomers.Remove(customer);
             }
+        }
+
+        static void EditCustomer(Customer customer, List<Customer> allcustomer)
+        {
+            RemoveCustomer(customer, allcustomer);
+
+            allcustomer.Add(AddCustomer());
         }
 
         static string Prompt(string Message)
