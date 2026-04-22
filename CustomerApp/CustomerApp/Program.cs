@@ -117,7 +117,14 @@ namespace CustomerApp
             }
         }
 
-       
+        static void RemoveCustomer(Customer customer, List<Customer> allcustomers)
+        {
+            string validate = Prompt($"Would you like to remove customer {customer.fullname} y/n").ToLower();
+           if (validate == "y")
+            {
+                allcustomers.Remove(customer);
+            }
+        }
 
         static string Prompt(string Message)
         {
