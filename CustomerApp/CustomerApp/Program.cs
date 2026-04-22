@@ -19,28 +19,8 @@ namespace CustomerApp
         static void Main(string[] args)
         {
             //Declare Varibles
-            string firstname;
-            string lastname;
-            int ordercount;
-            double totalsales;
-
-            //Entering the prompt 
-            firstname = Prompt("Enter your first name please : ");
-            lastname = Prompt("Enter your last name please : ");
-            ordercount = PromptInt("Enter the amount of orders : ");
-            totalsales = PromptDouble("Enter the total sales : ");
-
-            //Created new varible 
-            Customer customer = new Customer (firstname, lastname, ordercount, totalsales); 
-
-            //Provide feedback 
-            Console.WriteLine($"Firstname: {customer.firstname}");
-            Console.WriteLine($"Lastname: {customer.lastname}");
-            Console.WriteLine($"Full Name: {customer.fullname}");
-            Console.WriteLine($"OrderCount: {customer.ordercount}");
-            Console.WriteLine($"TotalSales: {customer.totalsales}");
-            Console.WriteLine($"AverageSales: {customer.AverageOrder}");
-            Console.WriteLine($"Customer Tier: {customer.customerteir}");
+            List<Customer> allcustomers;
+            Customer customer; 
         }
 
         static Customer AddCustomer()
@@ -62,6 +42,31 @@ namespace CustomerApp
 
             return customer;
         }
+
+        static void DisplayCustomer(Customer customer)
+        {
+            //Provide feedback 
+            Console.WriteLine($"Firstname: {customer.firstname}");
+            Console.WriteLine($"Lastname: {customer.lastname}");
+            Console.WriteLine($"Full Name: {customer.fullname}");
+            Console.WriteLine($"OrderCount: {customer.ordercount}");
+            Console.WriteLine($"TotalSales: {customer.totalsales}");
+            Console.WriteLine($"AverageSales: {customer.AverageOrder}");
+            Console.WriteLine($"Customer Tier: {customer.customerteir}");
+        }
+
+        static void DisplayAllCustomer(List<Customer> allcustomers)
+        {
+            //Foreach loop 
+            foreach (Customer customer in allcustomers)
+            {
+                Console.WriteLine($"FullName: {customer.fullname}");
+                Console.WriteLine($"TotalSales: {customer.totalsales}");
+                Console.WriteLine($"OrderCount: {customer.ordercount}");
+                Console.WriteLine();
+            }
+        }
+       
 
         static string Prompt(string Message)
         {
