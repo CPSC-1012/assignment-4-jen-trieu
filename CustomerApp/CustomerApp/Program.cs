@@ -163,7 +163,54 @@ namespace CustomerApp
             }
         }
 
+        static int load()
+        {
+            //Varible to store lines to read from the file
+            string line;
+            string file = "Saved Customers.csv";
+            Customer customer = null;
 
+            //Counter to track number of records loaded
+            int count = 0;
+
+            try
+            {
+                StreamReader sr = new StreamReader(file);
+
+                //Read file until end
+                while (!sr.EndOfStream)
+                {
+
+                    //Read a line from the file
+                    line = sr.ReadLine();
+
+                    //Split lines into parts using comma
+                    string[] items = line.Split(',');
+
+                    //Store date and sale values into arrays
+                    customer.firstname = items[0];
+                    customer.lastname = items[1];
+                    customer.ordercount = int.Parse(items[2]); 
+                    customer.totalsales = double.Parse(items[3]);
+
+                    //Move to next index
+                    count++;
+                }
+
+                //Close the file
+                sr.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                //Display error message
+                Console.WriteLine("Failed to load!");
+            }
+
+            //Return number of record loaded
+            return count;
+        }
 
         static void RemoveCustomer(Customer customer, List<Customer> allcustomers)
         {
