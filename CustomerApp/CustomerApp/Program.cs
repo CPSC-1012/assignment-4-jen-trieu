@@ -20,8 +20,72 @@ namespace CustomerApp
         static void Main(string[] args)
         {
             //Declare Varibles
-            List<Customer> allcustomers;
-            Customer customer; 
+            List<Customer> allcustomers = new List<Customer>();
+            Customer customer = new Customer("test" , "test" , 0 , 0);
+            bool closedprogram = false;
+            string menuselection;
+
+            //Load 
+            load(allcustomers);
+            if(allcustomers.Count > 0)
+            {
+                customer = allcustomers[0];
+            }
+            
+
+            //Display Menu
+            do
+            {
+                Menu();
+                menuselection = Prompt("Please make a selection : ").ToUpper();
+
+                switch (menuselection) {
+
+                    case "D":
+                        DisplayAllCustomer(allcustomers);
+
+                        break;
+
+                    case "S":
+                        customer = SearchCustomer(allcustomers);
+
+                        break ;
+
+                    case "A":
+                        allcustomers.Add(AddCustomer());
+
+                        break;
+
+                    case "E":
+                        EditCustomer(customer, allcustomers);
+
+                        break;
+
+                    case "R":
+                        RemoveCustomer(customer, allcustomers);
+
+                        break;
+
+                    case "V":
+                        DisplayCustomer(customer);
+
+                        break;
+
+                    case "Q":
+                        save(allcustomers);
+                        closedprogram = true;
+
+                        break;
+
+                    default:
+                        Console.WriteLine("Invaild Selection");
+
+                        break;
+                }
+            }
+            while (!closedprogram);
+
+           
         }
 
         static Customer AddCustomer()
@@ -163,7 +227,7 @@ namespace CustomerApp
             }
         }
 
-        static int load()
+        static int load(List<Customer> allcustomers)
         {
             //Varible to store lines to read from the file
             string line;
@@ -194,6 +258,7 @@ namespace CustomerApp
                     customer.totalsales = double.Parse(items[3]);
 
                     //Move to next index
+                    allcustomers.Add(customer);
                     count++;
                 }
 
