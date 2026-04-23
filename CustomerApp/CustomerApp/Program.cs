@@ -6,6 +6,7 @@
 /// </summary>
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -116,6 +117,53 @@ namespace CustomerApp
                 return output;
             }
         }
+
+        static void Menu()
+        {
+            Console.WriteLine("Display Customers");
+            Console.WriteLine("Search Customers");
+            Console.WriteLine("Add New Customer");
+            Console.WriteLine("Edit Customer");
+            Console.WriteLine("Remove Customer");
+            Console.WriteLine("View Customer Details");
+            Console.WriteLine("Quit");
+
+        }
+
+        static int save(List<Customer> allcustomers)
+        {
+            string file = "Saved Customers.csv";
+            int count = 0;
+
+            try
+            {
+                //Open file for writing
+                StreamWriter sw = new StreamWriter(file, false);
+
+                //Loop through the arrays up to count
+                foreach (Customer customer in allcustomers)
+                {
+                    //Write each record
+                    sw.WriteLine($"{customer.firstname}, {customer.lastname}, {customer.ordercount}, {customer.totalsales}");
+                    count++;
+                }
+
+                //Close file
+                sw.Close();
+                return count;
+
+            }
+            catch (Exception ex)
+
+            {
+                //Display error message
+                Console.WriteLine("Failed to save!");
+
+                return 0;
+            }
+        }
+
+
 
         static void RemoveCustomer(Customer customer, List<Customer> allcustomers)
         {
